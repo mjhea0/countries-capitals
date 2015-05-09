@@ -1,4 +1,4 @@
-angular.module('countries', ['ngRoute', 'ngAnimate'])
+angular.module('countries', ['ApiCalls', 'Data', 'ngRoute', 'ngAnimate'])
 
 .config(['$locationProvider','$routeProvider',
   function($locationProvider, $routeProvider) {
@@ -8,6 +8,7 @@ angular.module('countries', ['ngRoute', 'ngAnimate'])
       })
       .when("/countries", {
         templateUrl: "./partials/countries.html",
+        controller: "countriesController",
       })
       .when("/countries/:countryCode", {
         templateUrl: "./partials/details.html",
