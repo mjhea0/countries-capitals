@@ -12,6 +12,7 @@ angular.module('countries', ['ApiCalls', 'ngRoute', 'ngAnimate'])
       })
       .when("/countries/:countryCode", {
         templateUrl: "./partials/details.html",
+        controller: "detailsController",
       })
       .otherwise({
          redirectTo: '/'

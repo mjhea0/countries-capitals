@@ -10,3 +10,10 @@
     width: 1000px;
     margin: auto;
 }
+.country-detail {
+    width: 500px;
+    margin: auto;
+}
+.country-detail .title {
+    font-size: 50px;
+}

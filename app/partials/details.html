@@ -1,1 +1,13 @@
-<p>Details page....</p>
+<div class="country-detail">
+    <div class="title"> {{country.countryName}}</div>
+    <ul>Population: {{country.population | number}}</ul>
+    <ul>Area: {{country.areaInSqKm | number}}</ul>
+    <ul>Capital: {{country.capital}}</ul>
+    <ul>Population of Capital: {{capitalPopulation | number}}</ul>
+    <ul>{{count}} Neighbors:
+    <span ng-repeat="neighbor in neighbors">
+        <a ng-href="#countries/{{neighbor.countryCode | uppercase }}"> {{ neighbor.countryName}} </a></span>
+    </ul>
+    <a href="#/"><button class="button">Home</button></a>
+    <a href="#/countries"><button type="submit" class="button" name="submit">Browse Countries</button></a>
+</div>
