@@ -6,3 +6,7 @@
 .container {
     width: 600px;
 }
+.countries-content {
+    width: 1000px;
+    margin: auto;
+}

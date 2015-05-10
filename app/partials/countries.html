@@ -1,12 +1,22 @@
-<p>Countries</p>
+<div class="countries-content">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Country Name</th>
+            <th>Country Code</th>
+            <th>Capital</th>
+            <th>Area in square km</th>
+            <th>Population</th>
+            <th>Continent</th>
+        </tr>
+        <tr ng-repeat="country in countries">
+            <td>{{country.countryName}}</td>
+            <td>{{country.countryCode}}</td>
+            <td>{{country.capital}}</td>
+            <td>{{(country.areaInSqKm) | number}}</td>
+            <td>{{(country.population) | number}}</td>
+            <td>{{country.continentName}}</td>
+        </tr>
+    </table>
+    <a href="#/"><button class="button">Home</button></a>
+</div>
 
-<table>
-    <tr ng-repeat="country in countries">
-        <td>>{{country.countryName}}</td>
-        <td>{{country.countryCode}}</td>
-        <td>{{country.capital}}</td>
-        <td>{{(country.areaInSqKm) | number}}</td>
-        <td>{{(country.population) | number}}</td>
-        <td>{{country.continentName}}</td>
-    </tr>
-</table>
