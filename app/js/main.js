@@ -1,9 +1,9 @@
-angular.module('countries', ['ApiCalls', 'Data', 'ngRoute', 'ngAnimate'])
+angular.module('countries', ['ApiCalls', 'ngRoute', 'ngAnimate'])
 
 .config(['$locationProvider','$routeProvider',
   function($locationProvider, $routeProvider) {
     $routeProvider
-      .when("/home", {
+      .when("/", {
         templateUrl: "./partials/home.html"
       })
       .when("/countries", {
@@ -14,6 +14,6 @@ angular.module('countries', ['ApiCalls', 'Data', 'ngRoute', 'ngAnimate'])
         templateUrl: "./partials/details.html",
       })
       .otherwise({
-         redirectTo: '/home'
+         redirectTo: '/'
       });
 }]);
