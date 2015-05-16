@@ -1,3 +1,17 @@
+.loading {
+  height:100%;
+}
+.loading:before {
+  position:absolute;
+  content:"";
+  left:0;
+  bottom:0;
+  right:0;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,0.9) no-repeat center center;
+  background-image: url('./loading-animation.gif');
+}
 .title {
     text-align: center;
     padding: 20px 0 20px;
@@ -16,4 +30,21 @@
 }
 .country-detail .title {
     font-size: 50px;
+}
+.country-detail .buttons {
+    text-align: center;
+    padding: 20px 5px 10px;
+}
+.images {
+    text-align: center;
+    padding: 10px 5px 10px;
+}
+#country-img {
+    max-width: 40%;
+    max-height: 40%;
+    float: left;
+}
+#flag-img {
+    max-width: 40%;
+    max-height: 40%;
 }
