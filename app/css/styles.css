@@ -12,6 +12,9 @@
   background:rgba(255,255,255,0.9) no-repeat center center;
   background-image: url('./loading-animation.gif');
 }
+.home {
+    text-align: center;
+}
 .title {
     text-align: center;
     padding: 20px 0 20px;
@@ -42,9 +45,10 @@
 #country-img {
     max-width: 40%;
     max-height: 40%;
-    float: left;
+    padding-right: 20px
 }
 #flag-img {
     max-width: 40%;
     max-height: 40%;
+    padding-left: 20px;
 }

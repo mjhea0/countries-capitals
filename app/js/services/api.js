@@ -19,6 +19,9 @@ angular.module('ApiCalls', [])
           )
           .success(function(data) {
             defer.resolve(data);
+          })
+          .error(function(data) {
+            defer.reject();
           });
         return defer.promise;
     },
@@ -37,6 +40,9 @@ angular.module('ApiCalls', [])
           )
           .success(function(data) {
             defer.resolve(data.geonames);
+          })
+          .error(function(data){
+            defer.reject();
           });
         return defer.promise;
     },
@@ -54,6 +60,9 @@ angular.module('ApiCalls', [])
           )
           .success(function(data) {
             defer.resolve(data);
+          })          
+          .error(function(data){
+            defer.reject();
           });
         return defer.promise;
     },
@@ -70,6 +79,9 @@ angular.module('ApiCalls', [])
           )
           .success(function(data) {
             defer.resolve(data);
+          })
+          .error(function(data){
+            defer.reject();
           });
         return defer.promise;
     },
