@@ -1,6 +1,6 @@
 angular.module('ApiCalls', [])
 
-.factory('countries', ['$http', '$route', '$q', function($http, $route, $q) {
+.factory('countriesData', ['$http', '$route', '$q', function($http, $route, $q) {
 
     var username = 'ccolbert';
     var api_prefix = 'http://api.geonames.org/';
