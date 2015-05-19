@@ -8,13 +8,12 @@ angular.module('ApiCalls', [])
     return {
       getCountries: function() {
         var defer = $q.defer();
-        var url = api_prefix + "countryInfo?username=" + username;
+        var url = api_prefix + "countryInfoJSON";
+        var request = {
+          username: username
+        };
         $http.get(url, {cache: true,
-          transformResponse: function(data) {
-              var x2js = new X2JS();
-              var json = x2js.xml_str2json(data);
-                return json;
-              }
+          params: request
             }
           )
           .success(function(data) {
@@ -28,14 +27,13 @@ angular.module('ApiCalls', [])
 
     getCountry: function(code) {
       var defer = $q.defer();
-      var url = api_prefix + "countryInfo?username=" + username;
-        $http.get(url, {cache: true,
-          params: { country: code },
-          transformResponse: function(data) {
-              var x2js = new X2JS();
-              var json = x2js.xml_str2json(data);
-                return json;
-              }
+      var url = api_prefix + "countryInfoJSON";
+      var request = {
+        username: username,
+        country: code
+      };
+      $http.get(url, {cache: true, 
+        params: request
             }
           )
           .success(function(data) {
