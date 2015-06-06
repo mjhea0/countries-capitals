@@ -41,7 +41,7 @@ describe('countriesData', function () {
 
   it('should return API data', function() {
     inject(function(countriesData, $httpBackend, $q) {
-      $httpBackend.when('GET', 'http://api.geonames.org/countryInfoJSON?username=ccolbert').respond(200);
+      $httpBackend.when('GET', 'http://api.geonames.org/countryInfoJSON?&username=ccolbert').respond(200);
       var countries;
       $q.when(countriesData.getCountries()).then(function(result) {
         countries = result.geonames;
