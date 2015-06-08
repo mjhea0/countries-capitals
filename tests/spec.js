@@ -33,74 +33,25 @@ describe("countries routes", function() {
 });
 
 
-describe('countriesData', function () {
+describe('countriesData without mocking', function() {
 
   beforeEach(function () {
     module('countries');
   });
 
-  it('should return API data', function() {
-    inject(function(countriesData, $httpBackend, $q) {
-      $httpBackend.when('GET', 'http://api.geonames.org/countryInfoJSON?&username=ccolbert').respond(200);
-      var countries;
-      $q.when(countriesData.getCountries()).then(function(result) {
-        countries = result.geonames;
-        console.log(result);
-      });
-      // $rootScope.$digest();
-      $httpBackend.flush();
-      expect(countries).toBeDefined();
-      $httpBackend.verifyNoOutstandingRequest();
+  var $controller;
+
+  beforeEach(inject(function(_$controller_) {
+    $controller = _$controller_;
+  }));
+
+  describe('should return API data', function() {
+    var factory;
+    beforeEach(inject(function(countriesData) {
+      factory = countriesData;
+    }));
+    it('Should be defined', function() {
+      expect(factory.getCountries()).toBeDefined();
     });
   });
-
 });
-
-describe('countriesData without mocking', function () {
-
-  beforeEach(function () {
-    module('countries');
-  });
-
-  it('should return API data', function() {
-    inject(function(countriesData, $rootScope, $http, $route, $q) {
-      var countries;
-      $q.when(countriesData.getCountries()).then(function(result) {
-        countries = result.geonames;
-        console.log(result.geonames);
-      });
-      expect(countries).toBeDefined();
-    });
-  });
-
-});
-
-// describe('countries controller', function () {
-
-//   var controller = null;
-//   $scope = null;
-
-//   beforeEach(function() {
-//     module('countries');
-//   });
-
-//   beforeEach(inject(function ($controller, $rootScope) {
-//     $scope = $rootScope.$new();
-//     controller = $controller('countriesController', {
-//       $scope: $scope
-//     });
-//   }));
-
-//   it('should return list of countries', function () {
-//     inject(function(countriesData) {
-//       // console.log(countriesData);
-//       countriesData.getCountries().then(function(result) {
-//         $scope.countries = result.geonames.country;
-//         // console.log(result);
-//       });
-//       // console.log($scope.countries);
-//       expect($scope.countries).toBeDefined();
-//     });
-//   });
-
-// });
