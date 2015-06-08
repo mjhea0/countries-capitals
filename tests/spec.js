@@ -34,23 +34,26 @@ describe("countries routes", function() {
 
 describe('countriesData', function () {
 
- 
    beforeEach(function () {
      module('countries');
    });
- 
+
+  var factory;
+  beforeEach(inject(function(countriesData) {
+    factory = countriesData;
+  }));
+
   it('should return API data', function() {
-    inject(function(countriesData, $httpBackend, $q) {
+    inject(function($httpBackend) {
+
       $httpBackend.when('GET', 'http://api.geonames.org/countryInfoJSON?&username=ccolbert').respond(200);
-      var countries;
-      $q.when(countriesData.getCountries()).then(function(result) {
-        countries = result.geonames;
-        console.log(result);
+
+      it('Should be defined', function() {
+        expect(factory.getCountries()).toBeDefined();
+        $httpBackend.flush();
+        $httpBackend.verifyNoOutstandingRequest();
       });
-      // $rootScope.$digest();
-      $httpBackend.flush();
-      expect(countries).toBeDefined();
-      $httpBackend.verifyNoOutstandingRequest();
+
     });
   });
 
@@ -62,17 +65,13 @@ describe('countriesData without mocking', function() {
     module('countries');
   });
 
-  var $controller;
-
-  beforeEach(inject(function(_$controller_) {
-    $controller = _$controller_;
+  var factory;
+  beforeEach(inject(function(countriesData) {
+    factory = countriesData;
   }));
 
   describe('should return API data', function() {
-    var factory;
-    beforeEach(inject(function(countriesData) {
-      factory = countriesData;
-    }));
+
     it('Should be defined', function() {
       expect(factory.getCountries()).toBeDefined();
     });
